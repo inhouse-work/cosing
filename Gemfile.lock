@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     cosing (0.1.0)
-      dry-struct
-      dry-types
+      dry-struct (~> 1.6)
+      dry-types (~> 1.7)
 
 GEM
   remote: https://rubygems.org/

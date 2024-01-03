@@ -2,7 +2,7 @@
 
 This is a gem to make the COSING database easier to work with.
 
-Created by the team at [inhouse.work](https://inhouse.work)
+Created by the team at [inhouse.work](https://www.inhouse.work)
 
 ## Installation
 

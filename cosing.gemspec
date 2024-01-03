@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = "COSING database"
   spec.description = spec.summary
-  spec.homepage = "https://github.com/inhouse/cosing"
+  spec.homepage = "https://github.com/inhouse-work/cosing"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3"
 
@@ -31,8 +31,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
-  spec.add_dependency "dry-struct"
-  spec.add_dependency "dry-types"
+  spec.add_dependency "dry-struct", "~> 1.6"
+  spec.add_dependency "dry-types", "~> 1.7"
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
