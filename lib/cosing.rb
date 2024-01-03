@@ -2,6 +2,7 @@
 
 require "csv"
 require "json"
+require "pathname"
 require "dry/types"
 require "dry/struct"
 require_relative "cosing/version"
