@@ -20,7 +20,7 @@ If bundler is not being used to manage dependencies, install the gem by executin
 ```ruby
 database = Cosing.load
 database.ingredients #=> Hash<ID, Ingredient>
-database.ingredients.sample(2)
+database.ingredients.values.sample(2)
 database.save("output.json", pretty: true) # Will save the whole database to a json file
 ```
 
