@@ -1,0 +1,151 @@
+PATH
+  remote: .
+  specs:
+    cosing (0.1.0)
+      dry-struct
+      dry-types
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (7.1.2)
+      base64
+      bigdecimal
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      connection_pool (>= 2.2.5)
+      drb
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      mutex_m
+      tzinfo (~> 2.0)
+    ast (2.4.2)
+    base64 (0.2.0)
+    benchmark (0.3.0)
+    bigdecimal (3.1.4)
+    concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
+    debug (1.8.0)
+      irb (>= 1.5.0)
+      reline (>= 0.3.1)
+    diff-lcs (1.5.0)
+    drb (2.2.0)
+      ruby2_keywords
+    dry-core (1.0.1)
+      concurrent-ruby (~> 1.0)
+      zeitwerk (~> 2.6)
+    dry-inflector (1.0.0)
+    dry-logic (1.5.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 1.0, < 2)
+      zeitwerk (~> 2.6)
+    dry-struct (1.6.0)
+      dry-core (~> 1.0, < 2)
+      dry-types (>= 1.7, < 2)
+      ice_nine (~> 0.11)
+      zeitwerk (~> 2.6)
+    dry-types (1.7.1)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 1.0)
+      dry-inflector (~> 1.0)
+      dry-logic (~> 1.4)
+      zeitwerk (~> 2.6)
+    i18n (1.14.1)
+      concurrent-ruby (~> 1.0)
+    ice_nine (0.11.2)
+    io-console (0.6.0)
+    irb (1.10.0)
+      rdoc
+      reline (>= 0.3.8)
+    json (2.7.0)
+    language_server-protocol (3.17.0.3)
+    minitest (5.20.0)
+    mutex_m (0.2.0)
+    parallel (1.23.0)
+    parser (3.2.2.4)
+      ast (~> 2.4.1)
+      racc
+    psych (5.1.1.1)
+      stringio
+    racc (1.7.3)
+    rack (3.0.8)
+    rainbow (3.1.1)
+    rake (13.1.0)
+    rdoc (6.6.0)
+      psych (>= 4.0.0)
+    regexp_parser (2.8.2)
+    reline (0.4.1)
+      io-console (~> 0.5)
+    rexml (3.2.6)
+    rspec (3.12.0)
+      rspec-core (~> 3.12.0)
+      rspec-expectations (~> 3.12.0)
+      rspec-mocks (~> 3.12.0)
+    rspec-core (3.12.2)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.6)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-support (3.12.1)
+    rubocop (1.58.0)
+      json (~> 2.3)
+      language_server-protocol (>= 3.17.0)
+      parallel (~> 1.10)
+      parser (>= 3.2.2.4)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.30.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 3.0)
+    rubocop-ast (1.30.0)
+      parser (>= 3.2.1.0)
+    rubocop-capybara (2.19.0)
+      rubocop (~> 1.41)
+    rubocop-factory_bot (2.24.0)
+      rubocop (~> 1.33)
+    rubocop-inhouse (0.1.1)
+      rubocop (~> 1.5)
+      rubocop-capybara (~> 2.1)
+      rubocop-performance (~> 1.1)
+      rubocop-rails (~> 2.2)
+      rubocop-rake (~> 0.6)
+      rubocop-rspec (~> 2.2)
+    rubocop-performance (1.19.1)
+      rubocop (>= 1.7.0, < 2.0)
+      rubocop-ast (>= 0.4.0)
+    rubocop-rails (2.22.2)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.33.0, < 2.0)
+      rubocop-ast (>= 1.30.0, < 2.0)
+    rubocop-rake (0.6.0)
+      rubocop (~> 1.0)
+    rubocop-rspec (2.25.0)
+      rubocop (~> 1.40)
+      rubocop-capybara (~> 2.17)
+      rubocop-factory_bot (~> 2.22)
+    ruby-progressbar (1.13.0)
+    ruby2_keywords (0.0.5)
+    stringio (3.1.0)
+    tzinfo (2.0.6)
+      concurrent-ruby (~> 1.0)
+    unicode-display_width (2.5.0)
+    zeitwerk (2.6.12)
+
+PLATFORMS
+  x86_64-darwin-20
+  x86_64-linux
+
+DEPENDENCIES
+  benchmark
+  cosing!
+  debug
+  rake
+  rspec
+  rubocop-inhouse
+
+BUNDLED WITH
+   2.4.22

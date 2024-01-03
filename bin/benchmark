@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "bundler/setup"
+require "cosing"
+require "benchmark"
+
+Benchmark.bm do |x|
+  x.report("Cosing.load") do
+    Cosing.load
+  end
+
+  x.report("Cosing::Annex.load") do
+    Cosing::Annex.load
+  end
+end
