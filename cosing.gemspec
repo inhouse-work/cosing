@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description = spec.summary
   spec.homepage = "https://github.com/inhouse-work/cosing"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 3"
+  spec.required_ruby_version = ">= 3.1"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
+  spec.add_dependency "csv", "~> 3.2"
   spec.add_dependency "dry-struct", "~> 1.6"
   spec.add_dependency "dry-types", "~> 1.7"
 

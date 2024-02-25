@@ -25,14 +25,7 @@ module Cosing
           fuzzy_find(reference_number.to_s)
         )
       rescue KeyError => e
-        # Known missing data from original source
-        return nil if reference_number == "19" && instance_of?(Annex::VI)
-        return nil if reference_number == "41" && instance_of?(Annex::VI)
-        return nil if reference_number == "31" && instance_of?(Annex::VI)
-        return nil if reference_number == "44" && instance_of?(Annex::VI)
-        return nil if reference_number == "268" && instance_of?(Annex::III)
-
-        raise e
+        return
       end
 
       private
