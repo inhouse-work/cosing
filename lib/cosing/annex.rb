@@ -33,7 +33,7 @@ module Cosing
         yield row.merge(
           cas_numbers: cas_numbers.compact,
           ec_numbers: ec_numbers.compact,
-          sccs_opinions: sccs_opinions.compact,
+          sccs_opinions: sccs_opinions.compact
         )
       end
     end

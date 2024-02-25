@@ -22,7 +22,7 @@ module Cosing
             numeral, _, reference_number = match
 
             reference_number.split(",").flat_map do |number|
-              #debugger if number == "41" && numeral == "VI"
+              # debugger if number == "41" && numeral == "VI"
               @annexes[numeral.downcase.to_sym].lookup(number)
             end
           end
@@ -62,10 +62,10 @@ module Cosing
 
     def save(filepath, pretty: false)
       output = if pretty
-                 JSON.pretty_generate(@ingredients.to_h)
-               else
-                 JSON.dump(@ingredients.to_h)
-               end
+        JSON.pretty_generate(@ingredients.to_h)
+      else
+        JSON.dump(@ingredients.to_h)
+      end
 
       File.write(filepath, output)
     end

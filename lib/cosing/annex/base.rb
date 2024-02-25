@@ -24,8 +24,8 @@ module Cosing
           reference_number.to_s,
           fuzzy_find(reference_number.to_s)
         )
-      rescue KeyError => e
-        return
+      rescue KeyError
+        nil
       end
 
       private
