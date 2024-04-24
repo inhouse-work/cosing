@@ -11,6 +11,25 @@ module Cosing
         attribute :product_type, Types::String
         attribute :wording_of_conditions, Types::String
       end
+
+      def self.load
+        new.tap do |annex|
+          Annex.parse("data/annex.IV.csv") do |row|
+            ingredients = Annex.transform_array!(
+              row,
+              key: :identified_ingredients,
+              split: ";"
+            )
+
+            annex.add_rule(
+              row.merge(
+                identified_ingredients: ingredients.compact,
+                other_restrictions: row[:other]
+              )
+            )
+          end
+        end
+      end
     end
   end
 end

@@ -10,6 +10,31 @@ module Cosing
         attribute :other_restrictions, Types::String
         attribute :product_type, Types::String
       end
+
+      def self.load
+        new.tap do |annex|
+          Annex.parse("data/annex.III.csv") do |row|
+            common_ingredients = Annex.transform_array!(
+              row,
+              key: :common_ingredients,
+              split: ";"
+            )
+            identified_ingredients = Annex.transform_array!(
+              row,
+              key: :identified_ingredients,
+              split: ";"
+            )
+
+            annex.add_rule(
+              row.merge(
+                common_ingredients: common_ingredients.compact,
+                identified_ingredients: identified_ingredients.compact,
+                other_restrictions: row[:other]
+              )
+            )
+          end
+        end
+      end
     end
   end
 end

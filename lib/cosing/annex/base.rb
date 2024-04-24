@@ -12,11 +12,10 @@ module Cosing
       end
 
       def add_rule(params)
-        return unless params[:reference_number]
+        return unless reference = params[:reference_number]
 
-        @rules[params[:reference_number]] = self.class::Rule.new(
-          **params.merge(annex: self.class.name.gsub("::", " "))
-        )
+        annex = self.class.name.gsub("::", " ")
+        @rules[reference] = self.class::Rule.new(**params.merge(annex:))
       end
 
       def lookup(reference_number)
@@ -33,8 +32,7 @@ module Cosing
       def fuzzy_find(reference_number)
         return @rules[reference_number] if @rules.key?(reference_number)
 
-        candidates = @rules.keys.grep(/#{reference_number}[abcd]/)
-        candidates
+        @rules.keys.grep(/#{reference_number}[abcd]/)
           .map { |candidate| @rules[candidate] }
           .tap do |candidates|
             if candidates.empty?

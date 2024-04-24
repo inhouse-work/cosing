@@ -39,115 +39,15 @@ module Cosing
     end
 
     def load
-      annex_ii = Annex::II.new.tap do |annex|
-        parse("data/annex.II.csv") do |row|
-          identified_ingredients = transform_array!(
-            row,
-            key: :identified_ingredients,
-            split: ";"
-          )
+      ii, iii, iv, v, vi = [
+        Annex::II,
+        Annex::III,
+        Annex::IV,
+        Annex::V,
+        Annex::VI
+      ].map(&:load)
 
-          annex.add_rule(
-            row.merge(
-              identified_ingredients: identified_ingredients.compact
-            )
-          )
-        end
-      end
-
-      annex_iii = Annex::III.new.tap do |annex|
-        parse("data/annex.III.csv") do |row|
-          common_ingredients = transform_array!(
-            row,
-            key: :common_ingredients,
-            split: ";"
-          )
-          identified_ingredients = transform_array!(
-            row,
-            key: :identified_ingredients,
-            split: ";"
-          )
-
-          annex.add_rule(
-            row.merge(
-              common_ingredients: common_ingredients.compact,
-              identified_ingredients: identified_ingredients.compact,
-              other_restrictions: row[:other]
-            )
-          )
-        end
-      end
-
-      annex_iv = Annex::IV.new.tap do |annex|
-        parse("data/annex.IV.csv") do |row|
-          identified_ingredients = transform_array!(
-            row,
-            key: :identified_ingredients,
-            split: ";"
-          )
-
-          annex.add_rule(
-            row.merge(
-              identified_ingredients: identified_ingredients.compact,
-              other_restrictions: row[:other]
-            )
-          )
-        end
-      end
-
-      annex_v = Annex::V.new.tap do |annex|
-        parse("data/annex.V.csv") do |row|
-          common_ingredients = transform_array!(
-            row,
-            key: :common_ingredients,
-            split: ";"
-          )
-          identified_ingredients = transform_array!(
-            row,
-            key: :identified_ingredients,
-            split: ";"
-          )
-
-          annex.add_rule(
-            row.merge(
-              common_ingredients: common_ingredients.compact,
-              identified_ingredients: identified_ingredients.compact,
-              other_restrictions: row[:other]
-            )
-          )
-        end
-      end
-
-      annex_vi = Annex::VI.new.tap do |annex|
-        parse("data/annex.VI.csv") do |row|
-          common_ingredients = transform_array!(
-            row,
-            key: :common_ingredients,
-            split: ";"
-          )
-          identified_ingredients = transform_array!(
-            row,
-            key: :identified_ingredients,
-            split: ";"
-          )
-
-          annex.add_rule(
-            row.merge(
-              common_ingredients: common_ingredients.compact,
-              identified_ingredients: identified_ingredients.compact,
-              other_restrictions: row[:other]
-            )
-          )
-        end
-      end
-
-      {
-        ii: annex_ii,
-        iii: annex_iii,
-        iv: annex_iv,
-        v: annex_v,
-        vi: annex_vi
-      }
+      { ii:, iii:, iv:, v:, vi: }
     end
 
     def transform_array!(params, key:, split:)
