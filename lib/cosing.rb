@@ -30,13 +30,10 @@ module Cosing
         liberal_parsing: true,
         header_converters: :symbol
       ) do |row|
-        row =
-          row
-            .to_h
-            .transform_values(&:to_s)
-            .transform_values(&:strip)
-
-        database.add_ingredient(row)
+        row
+          .to_h
+          .transform_values! { |value| value.to_s.strip }
+          .then { |row| database.add_ingredient(row) }
       end
     end
   end
