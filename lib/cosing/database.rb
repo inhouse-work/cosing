@@ -16,7 +16,7 @@ module Cosing
       regulations = restrictions
         .flat_map do |restriction|
           matches = restriction.scan(annotation_pattern)
-          next unless matches.any?
+          next if matches.none?
 
           hits = matches.flat_map do |match|
             numeral, _, reference_number = match

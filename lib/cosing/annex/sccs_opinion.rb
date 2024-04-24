@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Cosing
   module Annex
     class SccsOpinion < Dry::Struct
