@@ -14,12 +14,12 @@ module Cosing
       def self.load
         new.tap do |annex|
           Annex.parse("data/annex.III.csv") do |row|
-            common_ingredients = Annex.transform_array!(
+            common_ingredients = Cosing::Parser.transform_array!(
               row,
               key: :common_ingredients,
               split: ";"
             )
-            identified_ingredients = Annex.transform_array!(
+            identified_ingredients = Cosing::Parser.transform_array!(
               row,
               key: :identified_ingredients,
               split: ";"

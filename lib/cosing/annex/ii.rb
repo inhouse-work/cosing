@@ -10,7 +10,7 @@ module Cosing
       def self.load
         new.tap do |annex|
           Annex.parse("data/annex.II.csv") do |row|
-            ingredients = Annex.transform_array!(
+            ingredients = Cosing::Parser.transform_array!(
               row,
               key: :identified_ingredients,
               split: ";"

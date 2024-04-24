@@ -10,7 +10,12 @@ module Cosing
     end
 
     def add_ingredient(params)
-      restrictions = transform_array!(params, key: :restriction, split: "\n")
+      restrictions = Parser.transform_array!(
+        params,
+        key: :restriction,
+        split: "\n"
+      )
+
       annotation_pattern = %r{([IVX]+)/([IVX]*/)?([\dabcd,]+)}
 
       regulations = restrictions
@@ -30,7 +35,7 @@ module Cosing
           hits.compact
         end
 
-      cas_numbers = transform_array!(
+      cas_numbers = Parser.transform_array!(
         params,
         key: :cas_number,
         split: "/"
@@ -39,9 +44,9 @@ module Cosing
         match[:cas_number] if match
       end
 
-      functions = transform_array!(params, key: :functions, split: ",")
+      functions = Parser.transform_array!(params, key: :functions, split: ",")
 
-      einecs_numbers = transform_array!(
+      einecs_numbers = Parser.transform_array!(
         params,
         key: :einecs_number,
         split: "/"
@@ -68,16 +73,6 @@ module Cosing
       end
 
       File.write(filepath, output)
-    end
-
-    private
-
-    def transform_array!(params, key:, split:)
-      params
-        .delete(key)
-        .split(split)
-        .map(&:strip)
-        .reject { |n| n == "-" }
     end
   end
 end

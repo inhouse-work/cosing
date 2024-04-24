@@ -50,16 +50,8 @@ module Cosing
       { ii:, iii:, iv:, v:, vi: }
     end
 
-    def transform_array!(params, key:, split:)
-      params
-        .delete(key)
-        .split(split)
-        .map(&:strip)
-        .reject { |n| n == "-" }
-    end
-
     def build_sccs_opinions(row)
-      transform_array!(
+      Cosing::Parser.transform_array!(
         row,
         key: :sccs_opinions,
         split: ";"
@@ -74,7 +66,7 @@ module Cosing
     end
 
     def build_cas_numbers(row)
-      transform_array!(
+      Cosing::Parser.transform_array!(
         row,
         key: :cas_number,
         split: "/"
@@ -85,7 +77,7 @@ module Cosing
     end
 
     def build_ec_numbers(row)
-      transform_array!(
+      Cosing::Parser.transform_array!(
         row,
         key: :ec_number,
         split: "/"
