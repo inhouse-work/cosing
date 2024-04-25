@@ -1,3 +1,7 @@
+## [0.3.0] - 2024-04-25
+
+- Cleans up duplicates in ingredients.csv selecting latest updates
+
 ## [0.2.1] - 2024-04-25
 
 - Refactors core classes, reduces unnecessary allocations
