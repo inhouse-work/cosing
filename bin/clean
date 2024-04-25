@@ -16,21 +16,21 @@ CSV.parse(
   liberal_parsing: true,
   header_converters: :symbol
 ).each do |row|
-  if data = ingredients[row[:inci_name]]
-    next if row[:update_date].nil?
+  inci_name = row[:inci_name].strip
 
-    if data[:update_date].nil?
-      ingredients[row[:inci_name]] = row.to_h
-    elsif Date.parse(data[:update_date]) < Date.parse(row[:update_date])
-      ingredients[row[:inci_name]] = row.to_h
+  if data = ingredients[inci_name]
+    if Date.parse(data[:update_date]) < Date.parse(row[:update_date])
+      ingredients[inci_name] = row.to_h
     end
   else
-    ingredients[row[:inci_name]] = row.to_h
+    ingredients[inci_name] = row.to_h
   end
 
 rescue Date::Error
   debugger
 end
+
+debugger
 
 csv = CSV.generate do |csv|
   csv << ingredients.values.first.keys
