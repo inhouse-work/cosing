@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cosing (0.2.0)
+    cosing (0.2.1)
       csv (~> 3.2)
       dry-struct (~> 1.6)
       dry-types (~> 1.7)
@@ -153,4 +153,4 @@ DEPENDENCIES
   rubocop-inhouse
 
 BUNDLED WITH
-   2.5.5
+   2.5.7
