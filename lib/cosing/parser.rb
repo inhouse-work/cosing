@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Cosing
   module Parser
     module_function
@@ -6,7 +8,7 @@ module Cosing
       params
         .delete(key)
         .split(split)
-        .map(&:strip)
+        .map!(&:strip)
         .reject { |n| n == "-" }
     end
   end
