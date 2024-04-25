@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative "lib/cosing/version"
-require "debug"
 
 Gem::Specification.new do |spec|
   spec.name = "cosing"
@@ -42,7 +41,6 @@ Gem::Specification.new do |spec|
         )
     end
   end
-  debugger
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
