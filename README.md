@@ -126,10 +126,12 @@ The library is fast to load on an SSD. You can run the benchmarks by running
 `bin/benchmark`
 
 ```
-                    user     system      total        real
-Cosing.load         1.255882   0.048911   1.304793 (  1.314068)
-Cosing::Annex.load  0.127545   0.003247   0.130792 (  0.131845)
+                        user     system      total        real
+Cosing.load         0.676430   0.011551   0.687981 (  0.688974)
+Cosing::Annex.load  0.065957   0.001479   0.067436 (  0.067588)
 ```
+
+The above benchmark was run on an M3 Pro Macbook.
 
 ## Development
 
