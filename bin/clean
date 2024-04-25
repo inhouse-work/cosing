@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Script used for cleaning the ingredients CSV file
+# It removes duplicates and keeps the latest update for each ingredient
+require "csv"
+require "bundler/setup"
+require "cosing"
+require "debug"
+
+ingredients = {}
+
+CSV.parse(
+  File.read(Cosing.gem_path("data/ingredients.csv")),
+  headers: true,
+  liberal_parsing: true,
+  header_converters: :symbol
+).each do |row|
+  if data = ingredients[row[:inci_name]]
+    next if row[:update_date].nil?
+
+    if data[:update_date].nil?
+      ingredients[row[:inci_name]] = row.to_h
+    elsif Date.parse(data[:update_date]) < Date.parse(row[:update_date])
+      ingredients[row[:inci_name]] = row.to_h
+    end
+  else
+    ingredients[row[:inci_name]] = row.to_h
+  end
+
+rescue Date::Error
+  debugger
+end
+
+csv = CSV.generate do |csv|
+  csv << ingredients.values.first.keys
+  ingredients.values.each do |row|
+    csv << row.values
+  end
+end
+
+File.write(Cosing.gem_path("data/ingredients-v2.csv"), csv)
