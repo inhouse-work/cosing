@@ -5,8 +5,6 @@ module Cosing
     attr_reader :annexes, :ingredients
 
     ANNOTATION_PATTERN = %r{([IVX]+)/([IVX]*/)?([\dabcd,]+)}
-    CAS_NUMBER_PATTERN = /(?<cas_number>\d{2,7}-\d{2}-\d)/
-    EINECS_NUMBER_PATTERN = /(?<einecs_number>\d{3}-\d{3}-\d)/
 
     def initialize(annexes)
       @annexes = annexes
@@ -51,7 +49,7 @@ module Cosing
         key: :cas_number,
         split: "/"
       ).map do |cas_number|
-        match = cas_number.match(CAS_NUMBER_PATTERN)
+        match = cas_number.match(Patterns::CAS_NUMBER)
         match[:cas_number] if match
       end
     end
@@ -62,7 +60,7 @@ module Cosing
         key: :einecs_number,
         split: "/"
       ).map do |einecs_number|
-        match = einecs_number.match(EINECS_NUMBER_PATTERN)
+        match = einecs_number.match(Patterns::EINECS_NUMBER)
         match[:einecs_number] if match
       end
     end

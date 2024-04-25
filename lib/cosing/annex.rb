@@ -71,7 +71,7 @@ module Cosing
         key: :cas_number,
         split: "/"
       ).map do |cas_number|
-        match = cas_number.match(/(?<cas_number>\d{2,7}-\d{2}-\d)/)
+        match = cas_number.match(Patterns::CAS_NUMBER)
         match[:cas_number] if match
       end
     end
@@ -82,7 +82,7 @@ module Cosing
         key: :ec_number,
         split: "/"
       ).map do |ec_number|
-        match = ec_number.match(/(?<ec_number>\d{3}-\d{3}-\d)/)
+        match = ec_number.match(Patterns::EC_NUMBER)
         match[:ec_number] if match
       end
     end
