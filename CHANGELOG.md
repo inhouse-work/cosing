@@ -1,3 +1,7 @@
+## [0.3.2] - 2024-05-06
+
+- Cleans up more INCI duplicates in ingredients.csv by normalizing dashes
+
 ## [0.3.1] - 2024-04-25
 
 - Cleans up misformed INCI duplicates in ingredients.csv
