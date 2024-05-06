@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cosing (0.3.0)
+    cosing (0.3.1)
       csv (~> 3.2)
       dry-struct (~> 1.6)
       dry-types (~> 1.7)

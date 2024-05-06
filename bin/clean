@@ -10,13 +10,26 @@ require "debug"
 
 ingredients = {}
 
+Normalize = ->(name) do
+  name
+    .upcase
+    .tr("\\", "/")
+    .tr("-", " ")
+    .gsub(/[\(\)]/, "")
+    .split
+    .map(&:strip)
+    .compact
+    .reject(&:empty?)
+    .join(" ")
+end
+
 CSV.parse(
   File.read(Cosing.gem_path("data/ingredients.csv")),
   headers: true,
   liberal_parsing: true,
   header_converters: :symbol
 ).each do |row|
-  inci_name = row[:inci_name].strip
+  inci_name = Normalize.call(row[:inci_name].strip)
 
   if data = ingredients[inci_name]
     if Date.parse(data[:update_date]) < Date.parse(row[:update_date])
