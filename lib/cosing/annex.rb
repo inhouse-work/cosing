@@ -14,8 +14,8 @@ module Cosing
     module_function
 
     def parse(path)
-      CSV.parse(
-        File.read(Cosing.gem_path(path)),
+      CSV.foreach(
+        Cosing.gem_path(path),
         headers: true,
         liberal_parsing: true,
         header_converters: :symbol

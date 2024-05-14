@@ -24,10 +24,9 @@ module Cosing
   def load
     Database.new(Annex.load).tap do |database|
       path = gem_path("data/ingredients.csv")
-      ingredient_file = File.read(path).delete("\r")
 
-      CSV.parse(
-        ingredient_file,
+      CSV.foreach(
+        path,
         headers: true,
         liberal_parsing: true,
         header_converters: :symbol
