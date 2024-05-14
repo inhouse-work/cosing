@@ -21,7 +21,8 @@ module Cosing
         .transform_array!(params, key: :functions, split: ",")
         .compact
 
-      @ingredients[params[:reference_number]] = Ingredient.new(
+      Ingredient.new(
+        reference_number: params[:reference_number],
         functions:,
         restrictions:,
         regulations:,
@@ -29,6 +30,10 @@ module Cosing
         einecs_numbers:,
         **params
       )
+    end
+
+    def save_ingredient(ingredient)
+      @ingredients[ingredient.reference_number] = ingredient
     end
 
     def save(filepath, pretty: false)

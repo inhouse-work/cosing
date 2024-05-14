@@ -7,6 +7,7 @@ gemspec
 
 gem "benchmark"
 gem "debug"
+gem "memory_profiler"
 gem "rake"
 gem "rspec"
 gem "rubocop-inhouse"
